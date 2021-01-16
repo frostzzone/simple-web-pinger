@@ -1,6 +1,10 @@
 # simple-website-pinger
 
 Simple website pinger, you can use it to keep your repl.it or similiar projects online for 24/7!
+
+[![NPM](https://nodei.co/npm/simple-website-pinger.png)](https://nodei.co/npm/simple-website-pinger/)
+
+
 # Example code:
 
 ```js
