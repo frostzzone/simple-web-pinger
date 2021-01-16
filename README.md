@@ -4,8 +4,7 @@ Simple website pinger, you can use it to keep your repl.it or similiar projects 
 
 [![NPM](https://nodei.co/npm/simple-website-pinger.png)](https://nodei.co/npm/simple-website-pinger/)
 
-<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
-<script type='text/javascript'>kofiwidget2.init('Support Us on Ko-fi', '#00c90a', 'W7W3315UN');kofiwidget2.draw();</script>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W3315UN)
 
 
 # Example code:
