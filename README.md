@@ -4,6 +4,13 @@ Simple website pinger, you can use it to keep your repl.it or similiar projects 
 
 [![NPM](https://nodei.co/npm/simple-website-pinger.png)](https://nodei.co/npm/simple-website-pinger/)
 
+[![downloadsBadge](https://img.shields.io/npm/dt/simple-website-pinger?style=for-the-badge)](https://npmjs.com/simple-website-pinger)
+[![versionBadge](https://img.shields.io/npm/v/simple-website-pinger?style=for-the-badge)](https://npmjs.com/simple-website-pinger)
+[![support](https://img.shields.io/badge/Support-Click%20here-blue?style=for-the-badge)](https://github.com/Pinglik-Developers/simple-website-pinger/discussions)
+[![donate](https://img.shields.io/badge/Donate-Click%20here-red?style=for-the-badge)](https://ko-fi.com/pinglik)
+
+If you like this package, don't forget to star Github repo [here](https://github.com/Pinglik-Developers/simple-website-pinger) or you can donate [here](https://ko-fi.com/pinglik).
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W3315UN)
 
 
