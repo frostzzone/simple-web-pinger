@@ -1,8 +1,0 @@
-blank_issues_enabled: false
-contact_links:
-  - name: Support
-    url: https://github.com/Pinglik-Developers/simple-website-pinger/discussions/categories/q-a
-    about: Please ask and answer questions here.
-  - name: Ideas (Feature requests)
-    url: https://github.com/Pinglik-Developers/simple-website-pinger/discussions/categories/ideas
-    about: Share ideas for new features here.
