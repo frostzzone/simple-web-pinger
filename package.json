@@ -2,9 +2,9 @@
   "name": "simple-website-pinger",
   "version": "3.0.14.frost.3.5",
   "description": "Simple website pinger, you can use it to keep your repl.it or similiar projects online for 24/7!",
-  "main": "index.js",
+  "main": "test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ."
   },
   "keywords": [
     "pinger",
@@ -17,9 +17,10 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.0",
+    "discord.js": "^13.5.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
-    "discord.js": "^13.5.0"
+    "node": "^17.3.0",
+    "node-fetch": "^2.6.1"
   },
   "homepage": "https://github.com/Pinglik-Developers/simple-website-pinger",
   "bugs": {
