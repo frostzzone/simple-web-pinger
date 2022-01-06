@@ -1,8 +1,8 @@
 {
-  "name": "simple-website-pinger",
-  "version": "3.0.14.frost.3.5",
+  "name": "simple-web-pinger",
+  "version": "1.0.0",
   "description": "Simple website pinger, you can use it to keep your repl.it or similiar projects online for 24/7!",
-  "main": "test.js",
+  "main": "index.js",
   "scripts": {
     "test": "node ."
   },
@@ -13,17 +13,21 @@
     "website pinger",
     "website-monitoring"
   ],
-  "author": "Pinglik Developers",
+  "author": "frostzzone",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.0",
     "discord.js": "^13.5.0",
     "express": "^4.17.1",
-    "node": "^17.3.0",
+    "node": "^17",
     "node-fetch": "^2.6.1"
   },
-  "homepage": "https://github.com/Pinglik-Developers/simple-website-pinger",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/frostzzone/simple-web-pinger.git"
+  },
+  "homepage": "https://github.com/frostzzone/simple-web-pinger",
   "bugs": {
-    "url": "https://github.com/Pinglik-Developers/simple-website-pinger"
+    "url": "https://github.com/frostzzone/simple-web-pinger"
   }
 }

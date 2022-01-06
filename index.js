@@ -24,7 +24,7 @@ const pong = async function(url, interval) {
 let int = interval || 60000
 
 setInterval(async () => {
-    const response = await fetch(url, {headers: {'User-Agent' : 'simple-website-pinger (NPM Package)'}}).catch(err => {
+    const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
       
     });
       
@@ -32,7 +32,7 @@ setInterval(async () => {
     status = response.status;
 }, int);
 
-const response = await fetch(url, {headers: {'User-Agent' : 'simple-website-pinger (NPM Package)'}}).catch(err => {
+const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
       
     });
       
@@ -47,11 +47,11 @@ const ping = async function(url, interval, logs, name) {
   clog = true
   }
 if (clog == true){
-log(chalk.gray.bgWhite(`[📡 simple-website-pinger]`) + ` Logging pings for `+ chalk.blue(nick));
+log(chalk.gray.bgWhite(`[📡 simple-web-pinger]`) + ` Logging pings for `+ chalk.blue(nick));
 }else{
-log(chalk.gray.bgWhite(`[📡 simple-website-pinger]`) + ` NOT Logging pings for `+ chalk.blue(nick));
+log(chalk.gray.bgWhite(`[📡 simple-web-pinger]`) + ` NOT Logging pings for `+ chalk.blue(nick));
 }
-if(!url) return log(chalk.red(`[📡 simple-website-pinger] Error: `) + `You must specify URL!`);
+if(!url) return log(chalk.red(`[📡 simple-web-pinger] Error: `) + `You must specify URL!`);
 
   function isValidUrl(string) {
     try {
@@ -63,29 +63,29 @@ if(!url) return log(chalk.red(`[📡 simple-website-pinger] Error: `) + `You mus
     return true;
   }
 
-  if(isValidUrl(url) !== true || url.includes("<" || ">" || "<script>" || "</script>") || encodeURIComponent(url).includes("%3C" || "%3E" || "%20")) return log(chalk.red(`[📡 simple-website-pinger] Error: `) + `Invalid URL (${url})!`);
+  if(isValidUrl(url) !== true || url.includes("<" || ">" || "<script>" || "</script>") || encodeURIComponent(url).includes("%3C" || "%3E" || "%20")) return log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Invalid URL (${url})!`);
 
 let int = interval || 60000
 
 setInterval(async () => {
-    const response = await fetch(url, {headers: {'User-Agent' : 'simple-website-pinger (NPM Package)'}}).catch(err => {
+    const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
      if(clog == true){
-      log(chalk.red(`[📡 simple-website-pinger] Error: `) + `Failed to ping ${url}: ${err}`);
+      log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Failed to ping ${url}: ${err}`);
        }
     });
   if(clog == true){
-      log(chalk.green(`[📡 simple-website-pinger] `) + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`);
+      log(chalk.green(`[📡 simple-web-pinger] `) + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`);
 }
     status = response.status;
 }, int);
 
-const response = await fetch(url, {headers: {'User-Agent' : 'simple-website-pinger (NPM Package)'}}).catch(err => {
+const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
   if(clog == true){
-      log(chalk.red(`[📡 simple-website-pinger] Error: `) + `Failed to ping ${url}: ${err}`);
+      log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Failed to ping ${url}: ${err}`);
     }
     });
   if(clog == true){
-      log(chalk.green(`[📡 simple-website-pinger] `) + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`);
+      log(chalk.green(`[📡 simple-web-pinger] `) + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`);
     }
 
     status = response.status;
@@ -98,12 +98,11 @@ bot = client
   let nick = name || `pinger`
   let chanid = channelid
   if (isNaN(chanid)) {
-    log(chalk.gray.bgWhite(`[📡 simple-website-pinger]`) + ` not a valid channel number  ['`+ chalk.green(id) + `']`)
+    log(chalk.gray.bgWhite(`[📡 simple-web-pinger]`) + ` not a valid channel number  ['`+ chalk.green(id) + `']`)
   return;
   }
   clog = true
-  
-if(!url) return bot.channels.cache.get(`${chanid}`).send({content: String(`[📡 simple-website-pinger] Error: ` + `invalid URL supplied [${url}]`)});
+if(!url) return bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `invalid URL supplied [${url}]`)}));
 
   function isValidUrl(string) {
     try {
@@ -115,29 +114,29 @@ if(!url) return bot.channels.cache.get(`${chanid}`).send({content: String(`[📡
     return true;
   }
 
-  if(isValidUrl(url) !== true || url.includes("<" || ">" || "<script>" || "</script>") || encodeURIComponent(url).includes("%3C" || "%3E" || "%20")) return client.channels.cache.get(`${chanid}`).send({content: String(`[📡 simple-website-pinger] Error: ` + `Invalid URL (${url})!`)});
+  if(isValidUrl(url) !== true || url.includes("<" || ">" || "<script>" || "</script>") || encodeURIComponent(url).includes("%3C" || "%3E" || "%20")) return client.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `Invalid URL (${url})!`)}));
 
 let int = interval || 60000
 
 setInterval(async () => {
-    const response = await fetch(url, {headers: {'User-Agent' : 'simple-website-pinger (NPM Package)'}}).catch(err => {
+    const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
      if(clog == true){
-      bot.channels.cache.get(`${chanid}`).send({content: String(`[📡 simple-website-pinger] Error: ` + `Failed to ping ${url}: ${err}`)});
+      bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `Failed to ping ${url}: ${err}`)}));
        }
     });
   if(clog == true){
-      bot.channels.cache.get(`${chanid}`).send({content: String(`[📡 simple-website-pinger] ` + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`)});
+      bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] ` + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`)}));
 }
     status = response.status;
 }, int);
 
-const response = await fetch(url, {headers: {'User-Agent' : 'simple-website-pinger (NPM Package)'}}).catch(err => {
+const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
   if(clog == true){
-      bot.channels.cache.get(`${chanid}`).send({content: String(`[📡 simple-website-pinger] Error: ` + `Failed to ping ${url}: ${err}`)});
+      bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `Failed to ping y${url}: ${err}`)}));
     }
     });
   if(clog == true){
-      bot.channels.cache.get(`${chanid}`).send({content: String(`[📡 simple-website-pinger] ` + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`)});
+      client.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] ` + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`)}));
     }
 
     status = response.status;
@@ -147,12 +146,12 @@ const response = await fetch(url, {headers: {'User-Agent' : 'simple-website-ping
 
 const webserver =  async function(port, text) {
 let status = 200 
-const words = text|| '<code>📡 This project is using <a href="https://www.npmjs.com/package/simple-website-pinger">simple-website-pinger</a> NPM package.</code>';
+const words = text|| '<code>📡 This project is using <a href="https://www.npmjs.com/package/simple-web-pinger">simple-web-pinger</a> NPM package.</code>';
 const p = port|| 3000;
 
   if (isNaN(p)){
-   log(chalk.red(`[📡 simple-website-pinger] Error: `) + `Not a valid port`);
-   log(chalk.yellow(`[📡 simple-website-pinger] `) + `Started on port 3000 instead`);
+   log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Not a valid port`);
+   log(chalk.yellow(`[📡 simple-web-pinger] `) + `Started on port 3000 instead`);
     
     const p = 3000;
    
@@ -161,7 +160,7 @@ res.status(status).send(`${words}`);
 });
     
 app.listen(p, () => {
-log(chalk.green(`[📡 simple-website-pinger] `) + `Webserver is listening on port ${p}!`);
+log(chalk.green(`[📡 simple-web-pinger] `) + `Webserver is listening on port ${p}!`);
 });
   }else{
     
@@ -170,7 +169,7 @@ res.status(status).send(`${words}`);
 });
     
 app.listen(p, () => {
-log(chalk.green(`[📡 simple-website-pinger] `) + `Webserver is listening on port ${p}!`);
+log(chalk.green(`[📡 simple-web-pinger] `) + `Webserver is listening on port ${p}!`);
 });
     }
 }

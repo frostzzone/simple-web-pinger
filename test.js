@@ -50,8 +50,8 @@
   });
 
   pinger.webserver(3000, 'html code')
-
-  pinger.pingd("s4d.client", "715254438234685581", "https://ping.frostzzone.repl.co")
+await delay(Number(1) * 1000);
+  pinger.pingd(s4d.client, "715254438234685581", "https://ping.frostzzone.repl.co")
 
   s4d.client.on('ready', async () => {
     prefix = '!';
@@ -59,6 +59,7 @@
   });
 
   s4d.client.on('messageCreate', async (s4dmessage) => {
+    if (!((s4dmessage.author).bot)) {
     arguments2 = (s4dmessage.content).split(' ');
     commandwithprefix = arguments2.splice(0, 1)[0];
     if ((commandwithprefix || '').startsWith(prefix || '')) {
@@ -67,7 +68,7 @@
         s4dmessage.react('👋');
       }
     }
-
+                                                            }
   });
 
   return s4d
