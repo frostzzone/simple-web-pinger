@@ -1,185 +1,102 @@
 const Discord = require("discord.js")
-const fetch = require("node-fetch")
-const express = require("express")
-const app = express()
 const chalk = require('chalk');
-const log = console.log;
+const lags = console.log;
 
-const pong = async function(url, interval) {
-  if(!url) return
-  
-  function isValidUrl(string) {
-    try {
-      new URL(string);
-    } catch (_) {
-      return false;  
-    }
-
-    return true;
+const log = async function(text) {
+  x = text
+  if (!x) {
+    lags(chalk.red("Are you an idiot mate, it cant be blank"))
+  } else {
+    lags(x)
   }
-
-  if(isValidUrl(url) !== true || url.includes("<" || ">" || "<script>" || "</script>") || encodeURIComponent(url).includes("%3C" || "%3E" || "%20")) return;
-
-
-let int = interval || 60000
-
-setInterval(async () => {
-    const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
-      
-    });
-      
-
-    status = response.status;
-}, int);
-
-const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
-      
-    });
-      
-    status = response.status;
-  }
-
-const ping = async function(url, interval, logs, name) {
-  let nick = name || `pinger`
-  if (logs == false) {
-  clog = false
-  }else{
-  clog = true
-  }
-if (clog == true){
-log(chalk.gray.bgWhite(`[📡 simple-web-pinger]`) + ` Logging pings for `+ chalk.blue(nick));
-}else{
-log(chalk.gray.bgWhite(`[📡 simple-web-pinger]`) + ` NOT Logging pings for `+ chalk.blue(nick));
-}
-if(!url) return log(chalk.red(`[📡 simple-web-pinger] Error: `) + `You must specify URL!`);
-
-  function isValidUrl(string) {
-    try {
-      new URL(string);
-    } catch (_) {
-      return false;  
-    }
-
-    return true;
-  }
-
-  if(isValidUrl(url) !== true || url.includes("<" || ">" || "<script>" || "</script>") || encodeURIComponent(url).includes("%3C" || "%3E" || "%20")) return log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Invalid URL (${url})!`);
-
-let int = interval || 60000
-
-setInterval(async () => {
-    const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
-     if(clog == true){
-      log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Failed to ping ${url}: ${err}`);
-       }
-    });
-  if(clog == true){
-      log(chalk.green(`[📡 simple-web-pinger] `) + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`);
-}
-    status = response.status;
-}, int);
-
-const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
-  if(clog == true){
-      log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Failed to ping ${url}: ${err}`);
-    }
-    });
-  if(clog == true){
-      log(chalk.green(`[📡 simple-web-pinger] `) + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`);
-    }
-
-    status = response.status;
-
 }
 
-const pingd = async function(client, channelid, url, interval, name) {
-  if(!client) return log(chalk.red(`ERROR: `) +"Client not provided")
-bot = client
-  let nick = name || `pinger`
-  let chanid = channelid
-  if (isNaN(chanid)) {
-    log(chalk.gray.bgWhite(`[📡 simple-web-pinger]`) + ` not a valid channel number  ['`+ chalk.green(id) + `']`)
-  return;
-  }
-  clog = true
-if(!url) return bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `invalid URL supplied [${url}]`)}));
+const bot = async function(tokn, prefx, text){
+  tok = tokn
+  status = text || "some servers"
+  prfx = prefx || "!"
 
-  function isValidUrl(string) {
-    try {
-      new URL(string);
-    } catch (_) {
-      return false;  
-    }
-
-    return true;
-  }
-
-  if(isValidUrl(url) !== true || url.includes("<" || ">" || "<script>" || "</script>") || encodeURIComponent(url).includes("%3C" || "%3E" || "%20")) return client.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `Invalid URL (${url})!`)}));
-
-let int = interval || 60000
-
-setInterval(async () => {
-    const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
-     if(clog == true){
-      bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `Failed to ping ${url}: ${err}`)}));
-       }
+  let process = require('process');
+    process.on('uncaughtException', function(err) {
+        console.log(`𝕖𝕣𝕣𝕠𝕣❕`);
+        console.log(err);
     });
-  if(clog == true){
-      bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] ` + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`)}));
-}
-    status = response.status;
-}, int);
-
-const response = await fetch(url, {headers: {'User-Agent' : 'simple-web-pinger (NPM Package)'}}).catch(err => {
-  if(clog == true){
-      bot.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] Error: ` + `Failed to ping y${url}: ${err}`)}));
-    }
+  let {
+        MessageEmbed,
+        MessageButton,
+        MessageActionRow,
+        Intents,
+        Permissions,
+        MessageSelectMenu
+    } = require("discord.js")
+  require('events').EventEmitter.defaultMaxListeners = 50;
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const s4d = {
+        Discord,
+        fire: null,
+        joiningMember: null,
+        reply: null,
+        tokenInvalid: false,
+        tokenError: null,
+        player: null,
+        manager: null,
+        Inviter: null,
+        message: null,
+        notifer: null,
+        checkMessageExists() {
+            if (!s4d.client) throw new Error('You cannot perform message operations without a Discord.js client')
+            if (!s4d.client.readyTimestamp) throw new Error('You cannot perform message operations while the bot is not connected to the Discord API')
+        }
+    };
+    s4d.client = new s4d.Discord.Client({
+        intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
+        partials: ["REACTION", "CHANNEL"]
     });
-  if(clog == true){
-      client.channels.fetch(`${chanid}`).then(channel => channel.send({content: String(`[📡 simple-web-pinger] ` + `Successfully pinged ${url} with status ${response.status} (${response.statusText})`)}));
-    }
+    s4d.client.on('ready', () => {
+      console.log(s4d.client.user.tag + " is alive!\n")
+    })
+    var prefix, arguments2, commandwithprefix, command;
 
-    status = response.status;
 
+    await s4d.client.login(tok).catch((e) => {
+        s4d.tokenInvalid = true;
+        s4d.tokenError = e;
+    });
+
+    s4d.client.on('ready', async () => {
+        prefix = prfx;
+        s4d.client.user.setPresence({
+            status: "online",
+            activities: [{
+                name: status,
+                type: "LISTENING"
+            }]
+        });
+        console.log((['Bot commands', '\n', prefix, 'say <message> - repeats the message'].join('')));
+      console.log("\n");
+    });
+
+    s4d.client.on('messageCreate', async (s4dmessage) => {
+        if (!((s4dmessage.author).bot)) {
+            arguments2 = (s4dmessage.content).split(' ');
+            commandwithprefix = arguments2.splice(0, 1)[0];
+            if ((commandwithprefix || '').startsWith(prefix || '')) {
+                command = commandwithprefix.slice(((prefix.length + 1) - 1), commandwithprefix.length);
+                if (command == 'say') {
+                    s4dmessage.channel.send({
+                        content: String((arguments2.join(' ')))
+                    });
+                }
+            }
+        }
+
+    });
+
+    return s4d
 }
-
-
-const webserver =  async function(port, text) {
-let status = 200 
-const words = text|| '<code>📡 This project is using <a href="https://www.npmjs.com/package/simple-web-pinger">simple-web-pinger</a> NPM package.</code>';
-const p = port|| 3000;
-
-  if (isNaN(p)){
-   log(chalk.red(`[📡 simple-web-pinger] Error: `) + `Not a valid port`);
-   log(chalk.yellow(`[📡 simple-web-pinger] `) + `Started on port 3000 instead`);
-    
-    const p = 3000;
-   
- app.get('*', (req, res) => {
-res.status(status).send(`${words}`);
-});
-    
-app.listen(p, () => {
-log(chalk.green(`[📡 simple-web-pinger] `) + `Webserver is listening on port ${p}!`);
-});
-  }else{
-    
-app.get('*', (req, res) => {
-res.status(status).send(`${words}`);
-});
-    
-app.listen(p, () => {
-log(chalk.green(`[📡 simple-web-pinger] `) + `Webserver is listening on port ${p}!`);
-});
-    }
-}
-
-
-
+ 
 
 module.exports = {
-pong,
-ping,
-pingd,
-webserver
+  log,
+  bot
 }
