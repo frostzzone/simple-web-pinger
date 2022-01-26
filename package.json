@@ -1,28 +1,33 @@
 {
-  "name": "bad-pack",
-  "version": "0.0.2",
-  "description": "Bad pack for npm",
+  "name": "simple-web-pinger",
+  "version": "1.0.0",
+  "description": "Simple website pinger, you can use it to keep your repl.it or similiar projects online for 24/7!",
   "main": "index.js",
   "scripts": {
     "test": "node ."
   },
   "keywords": [
-    "bad",
-    "js"
+    "pinger",
+    "node.js",
+    "repl.it 24/7",
+    "website pinger",
+    "website-monitoring"
   ],
   "author": "frostzzone",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.0",
     "discord.js": "^13.5.0",
-    "node": "^17"
+    "express": "^4.17.1",
+    "node": "^17",
+    "node-fetch": "^2.6.1"
   },
   "repository": {
-    "type": "ISC",
-    "url": "git://github.com/frostzzone/bad-pack.git"
+    "type": "git",
+    "url": "git://github.com/frostzzone/simple-web-pinger.git"
   },
-  "homepage": "https://github.com/frostzzone/bad-pack",
+  "homepage": "https://github.com/frostzzone/simple-web-pinger",
   "bugs": {
-    "url": "https://github.com/frostzzone/bad-pack"
+    "url": "https://github.com/frostzzone/simple-web-pinger"
   }
 }
